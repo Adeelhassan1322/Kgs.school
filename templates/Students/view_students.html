@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KGS Admin Panel</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en-us" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<meta name="revisit-after" content="1 Weeks" />
+	<meta name="distribution" content="global" />
+	<meta name="robots" content="noindex,nofollow,noarchive" />
+	<meta name="rating" content="general" />
+
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="Tue, 01 Jan 2009 12:12:12 GMT" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	
+	<meta name="copyright" content="SW3 Solutions" />
+	<base href="{{ url_for('static', filename='') }}" />
+	<link rev="made" href="mailto:info@sw3solutions.com" />
+	
+	<link rel="Shortcut Icon" href="images/icons/favicon.ico" type="image/icon" />
+	<link rel="icon" href="images/icons/favicon.ico" type="image/icon" />
+
+	<link type="text/css" rel="stylesheet" href="css/jquery.fixedtable.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.colorbox.css?1592322406" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.tiptip.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.tokeninput.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.ui-timepicker.css?1613369926" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.rating.css?1613369926" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/jquery.ui.css?1679702628" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/jquery.datatables.css?1613365480" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/common.css?1679702628" />
+	<link type="text/css" rel="stylesheet" href="css/common.css?1688974401" />
+	<script type="text/javascript" src="scripts/jquery.js?1613369990"></script>
+	<script type="text/javascript" src="scripts/jquery.ui.js?1613369994"></script>
+	<script type="text/javascript" src="scripts/jquery.colorbox.js?1613369974"></script>
+	<script type="text/javascript" src="scripts/jquery.timepicker.js?1592322406"></script>
+	<script type="text/javascript" src="scripts/jquery.datatables.js?1613369982"></script>
+	<script type="text/javascript" src="scripts/jquery.maskedinput.js?1592322406"></script>
+	<script type="text/javascript" src="scripts/jquery.cookie.js?1613369976"></script>
+	<script type="text/javascript" src="scripts/jquery.tiptip.js?1613369992"></script>
+	<script type="text/javascript" src="scripts/jquery.tablednd.js?1613369992"></script>
+	<script type="text/javascript" src="scripts/jquery.filtertable.js?1684232593"></script>
+	<script type="text/javascript" src="scripts/jquery.fixedtable.js?1582747122"></script>
+	<script type="text/javascript" src="scripts/jquery.tokeninput.js?1613369994"></script>
+	<script type="text/javascript" src="scripts/jquery.rating.js?1613369988"></script>
+	<script type="text/javascript" src="scripts/jquery.ajaxq.js?1613369972"></script>
+	<script type="text/javascript" src="scripts/validator.js?1659931578"></script>
+	<script type="text/javascript" src="scripts/common.js?1684236497"></script>
+	<script type="text/javascript" src="scripts/functions.js?1684236528"></script>
+	
+	
+	<link rel="stylesheet" href="https://localhost:5000/static/plugins/chosen/chosen.css">
+
+  <script type="text/javascript" src="http://localhost:5000/static/plugins/chosen/chosen.jquery.js"></script>
+  <script type="text/javascript" src="https://localhost:5000/static/plugins/chosen/prism.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://localhost:5000/static/plugins/chosen/init.js" charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,300,700" />
+  <link type="text/css" rel="stylesheet" href="css/dashboard.css?1582747120" />
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="scripts/jquery.easing.js"></script>
+  <script type="text/javascript" src="scripts/jquery.easypiechart.js"></script>
+  <script type="text/javascript" src="scripts/students/students.js?1747916287"></script>
+
+</head>
+<body>
+<div id="MainDiv">
+
+<!--  Header Section Starts Here  -->
+  <div id="Header">
+    <a href="dashboard.php"><img src="images/logo.png?1" width="490" height="60" alt="Kohinoor Grammar School & College" title="Kohinoor Grammar School & College" /></a>
+	<div id="Welcome">
+	  Welcome, <span>{{ user.username }}</span>
+	  <img src="images/admins/thumbs/default.jpg?1679702628" alt="{{ user.username }}" title="{{ user.username }}" />
+
+	  <div>
+	    <a class="ui-state-default ui-corner-all" href="{{ url_for('logout') }}"><span class="ui-icon ui-icon-power"></span>Logout</a>
+	    <a class="ui-state-default ui-corner-all" href="my-account.php"><span class="ui-icon ui-icon-person"></span>My Account</a>
+	  </div>
+	</div>
+  </div>
+<!--  Header Section Ends Here  -->
+
+<!--  Navigation Section Starts Here  -->
+  <div id="Navigation">
+    <ul>
+	  <li>
+	    <a href="{{ url_for('index') }}"><img class="icon" src="images/icons/home.png" alt="Dashboard" title="Dashboard" /></a>
+
+	    <ul>
+	      <li><a href="my-account.php">My Account</a></li>
+	      <li><a href="{{ url_for('index') }}">Logout</a></li>
+	    </ul>
+	  </li>
+
+	<li>
+	<a href="{{ url_for('dashboard') }}">Dashboard<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	</li>
+	<li>
+	<a href="{{ url_for('view_students') }}">Students<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+		  <li><a href="{{ url_for('add_student') }}">New Student</a></li>
+		  <li><a href="{{ url_for('view_attendance') }}">Attendance</a></li>
+		  <li><a href="{{ url_for('view_students') }}">Students</a></li>
+	</ul>
+	</li>
+	
+	<li>
+	<a href="{{ url_for('view_teachers') }}">HR<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('add_teacher') }}">New Employee</a></li>
+		  <li><a href="{{ url_for('view_teachers') }}">Employee</a></li>
+		 
+	</ul>		
+	</li>
+	
+	<li>
+	<a href="{{ url_for('view_fees') }}">Billing<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('add_fee') }}">Add fee</a></li>
+		  <li><a href="{{ url_for('view_fees') }}">Fee</a></li>
+		 
+	</ul>		
+	</li>
+	
+	<div id="FullScreen" onclick="TakePrint( )" style="right:50px;"><img src="images/icons/print.png" alt="Take Print" title="Take Print" /></div>
+	<div id="FullScreen" fullScreen="N"><img src="images/icons/enter-full-screen.png" alt="Full Screen" title="Full Screen" /></div>
+	
+	
+	<script>
+	function TakePrint( )
+	{
+		window.print( );
+    }
+	</script>
+	
+    </div>
+
+
+
+
+<div id="Body">
+    <div id="Page">
+	
+      <img id="Indicator" src="images/indicator.gif" alt="" title="" />
+      <img src="images/students/students.png" title="" alt="" />
+      <h1>Students</h1>
+      <a href="dashboard.php">Dashboard</a> &raquo; <a href="students/">Students</a> &raquo; <span>Students</span><br />
+    </div>
+ <div id="Contents">
+      <input type="hidden" id="OpenTab" value="0" />
+      <div id="PageMsg" class="hidden"></div>
+
+      <div id="PageTabs">
+	    <ul>
+	      <li><a href="/admin/students/students.php#tabs-1"><b>Students</b></a></li>
+	      <li><a href="/admin/students/students.php#tabs-2">New Student</a></li>
+		  <li><a href="/admin/students/students.php#tabs-3">Quick Entry</a></li>
+	    </ul>
+
+
+		<div id="tabs-1">
+		  <input type="hidden" id="TotalRecords" value="2567" />
+		  <input type="hidden" id="RecordsPerPage" value="100" />
+
+	      <div id="GridMsg" class="hidden"></div>
+
+	      <div id="ConfirmDelete" title="Delete Student?" class="dlgConfirm">
+	        <span class="ui-icon ui-icon-trash"></span>
+	        Are you sure, you want to Delete this Student?<br />
+	      </div>
+
+	      <div id="ConfirmMultiDelete" title="Delete Students?" class="dlgConfirm">
+	        <span class="ui-icon ui-icon-trash"></span>
+	        Are you sure, you want to Delete the selected Students?<br />
+	      </div>
+			<form name="frmFilters" id="frmFilters" onsubmit="return false;" style="border:dotted 1px #aaaaaa; background:#f6f6f6; padding:12px 0px 12px 18px; margin-bottom:15px;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			  <tr>
+			    <td width="130"><b style="font-size:13px;">Filter Records:</b></td>
+			    <td width="75"><label for="txtFromDate">From Date</label></td>
+			    <td width="150"><div class="date"><input type="text" name="txtFromDate" id="txtFromDate" value="" maxlength="10" size="10" class="textbox" readonly /></div></td>
+			    <td width="60"><label for="txtToDate">To Date</label></td>
+			    <td width="150"><div class="date"><input type="text" name="txtToDate" id="txtToDate" value="" maxlength="10" size="10" class="textbox" readonly /></div></td>
+			    <td width="90"><button id="BtnApply">Apply</button></td>
+			    <td><button id="BtnRemove">Remove</button></td>
+			  </tr>
+			</table>
+		  </form>
+	
+            <div id="TblStudents" class="dataGrid ex_highlight_row">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tblData" id="DataGrid">
+			  <thead>
+			    <tr>
+                    <th width="5%">ID</th>
+                    <th width="12%">Name</th>
+                    <th width="10%">Roll No</th>
+                    <th width="12%">Class</th>
+                    <th width="12%">Section</th>
+                    <th width="12%">Gender</th>
+                    <th width="15%">Contact</th>
+                    <th width="12%">Actions</th>
+                </tr>
+            </thead>
+            <tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="odd selected" id="8604">
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.roll_no }}</td>
+                    <td>{{ student.class_name }}</td>
+                    <td>{{ student.section }}</td>
+                    <td>{{ student.gender }}</td>
+                    <td>{{ student.contact }}</td>
+                    <td>
+						<a href="" class ""><img class="icon details" id="8107" src="images/icons/info.png" alt="">
+                        <a href="{{ url_for('edit_student', student_id=student.id) }}" class="btn btn-sm btn-warning"><img class="icnEdit" id="8604" src="images/icons/edit.gif" alt="Edit" title="Edit"></a>
+                        <a href="{{ url_for('delete_student', student_id=student.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?');"><img class="icnDelete" id="8604" src="images/icons/delete.gif" alt="Delete" title="Delete"></a>
+						<a href="" class ""><img class="icnView" id="8604" src="images/icons/view.gif" alt="View" title="View">
+						
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="8" class="text-center">No students found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!--script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script-->
+</body>
+</html>

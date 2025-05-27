@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <title>Kohinoor Grammar School & College | Administration Area |</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+
+  <meta name="revisit-after" content="1 Weeks" />
+  <meta name="distribution" content="global" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="rating" content="general" />
+
+  <meta http-equiv="imagetoolbar" content="no" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="Tue, 01 Jan 2009 12:12:12 GMT" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+
+  
+  
+  
+  
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .login-box {
+            background: #ffffff;
+            padding: 10px 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .login-box h3 {
+            font-weight: 600;
+            color: #203a43;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .form-control {
+            padding-left: 35px;
+        }
+
+        .form-icon {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .btn-primary {
+            background-color: #203a43;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0f2027;
+        }
+
+        .alert {
+            font-size: 14px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="Navigation">
+  </div>
+
+
+    <div class="login-box">
+        <h3><i class="fas fa-lock"></i> Admin Login</h3>
+		<div class="login-box" style="background:url('images/themes/smoothness/login.jpg') 10px 28px no-repeat;">
+        <form method="POST" action="{{ url_for('login') }}">
+            {{ form.hidden_tag() }}
+			
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <div class="input-group">
+                    <i class="fas fa-user form-icon"></i>
+                    {{ form.username(class="form-control", placeholder="Enter username") }}
+						
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <div class="input-group">
+                    <i class="fas fa-key form-icon"></i>
+                    {{ form.password(class="form-control", placeholder="Enter password") }}
+				
+                </div>
+            </div>
+
+            <div class="d-grid">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger mt-3">
+                {% for message in messages %}
+                    <div>{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+	
+</body>
+
+
+</html>

@@ -1,0 +1,49 @@
+{% extends "base1.html" %}
+
+{% block title %}Edit Student - KGS Admin Panel{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<h2>Edit Student</h2>
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.roll_no.label(class="form-label") }}
+        {{ form.roll_no(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.class_name.label(class="form-label") }}
+        {{ form.class_name(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.section.label(class="form-label") }}
+        {{ form.section(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.gender.label(class="form-label") }}
+        {{ form.gender(class="form-select") }}
+    </div>
+    <div class="mb-3">
+        {{ form.contact.label(class="form-label") }}
+        {{ form.contact(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">Update Student</button>
+    <a href="{{ url_for('view_students') }}" class="btn btn-secondary">Back to List</a>
+</form>
+{% endblock %}

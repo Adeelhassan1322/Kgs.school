@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edit Salary - KGS Admin Panel</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+             <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
+            <div>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2>Edit Staff Salary</h2>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.staff_name.label(class="form-label") }}
+                {{ form.staff_name(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.month.label(class="form-label") }}
+                {{ form.month(class="form-control", type="month") }}
+            </div>
+            <div class="mb-3">
+                {{ form.amount.label(class="form-label") }}
+                {{ form.amount(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.status.label(class="form-label") }}
+                {{ form.status(class="form-control") }}
+            </div>
+            <button type="submit" class="btn btn-primary">Update Salary</button>
+            <a href="{{ url_for('view_salary') }}" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}KGS Admin Panel{% endblock %}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en-us" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<meta name="revisit-after" content="1 Weeks" />
+	<meta name="distribution" content="global" />
+	<meta name="robots" content="noindex,nofollow,noarchive" />
+	<meta name="rating" content="general" />
+
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="Tue, 01 Jan 2009 12:12:12 GMT" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	
+	<meta name="copyright" content="SW3 Solutions" />
+	<base href="{{ url_for('static', filename='') }}" />
+	<link rev="made" href="mailto:info@sw3solutions.com" />
+	
+	<link rel="Shortcut Icon" href="images/icons/favicon.ico" type="image/icon" />
+	<link rel="icon" href="images/icons/favicon.ico" type="image/icon" />
+
+	<link type="text/css" rel="stylesheet" href="css/jquery.fixedtable.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.colorbox.css?1592322406" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.tiptip.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.tokeninput.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.ui-timepicker.css?1613369926" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.rating.css?1613369926" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/jquery.ui.css?1679702628" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/jquery.datatables.css?1613365480" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/common.css?1679702628" />
+	<link type="text/css" rel="stylesheet" href="css/common.css?1688974401" />
+	<script type="text/javascript" src="scripts/jquery.js?1613369990"></script>
+	<script type="text/javascript" src="scripts/jquery.ui.js?1613369994"></script>
+	<script type="text/javascript" src="scripts/jquery.colorbox.js?1613369974"></script>
+	<script type="text/javascript" src="scripts/jquery.timepicker.js?1592322406"></script>
+	<script type="text/javascript" src="scripts/jquery.datatables.js?1613369982"></script>
+	<script type="text/javascript" src="scripts/jquery.maskedinput.js?1592322406"></script>
+	<script type="text/javascript" src="scripts/jquery.cookie.js?1613369976"></script>
+	<script type="text/javascript" src="scripts/jquery.tiptip.js?1613369992"></script>
+	<script type="text/javascript" src="scripts/jquery.tablednd.js?1613369992"></script>
+	<script type="text/javascript" src="scripts/jquery.filtertable.js?1684232593"></script>
+	<script type="text/javascript" src="scripts/jquery.fixedtable.js?1582747122"></script>
+	<script type="text/javascript" src="scripts/jquery.tokeninput.js?1613369994"></script>
+	<script type="text/javascript" src="scripts/jquery.rating.js?1613369988"></script>
+	<script type="text/javascript" src="scripts/jquery.ajaxq.js?1613369972"></script>
+	<script type="text/javascript" src="scripts/validator.js?1659931578"></script>
+	<script type="text/javascript" src="scripts/common.js?1684236497"></script>
+	<script type="text/javascript" src="scripts/functions.js?1684236528"></script>
+	
+	
+	<link rel="stylesheet" href="https://localhost:5000/static/plugins/chosen/chosen.css">
+
+  <script type="text/javascript" src="http://localhost:5000/static/plugins/chosen/chosen.jquery.js"></script>
+  <script type="text/javascript" src="https://localhost:5000/static/plugins/chosen/prism.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://localhost:5000/static/plugins/chosen/init.js" charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,300,700" />
+  <link type="text/css" rel="stylesheet" href="css/dashboard.css?1582747120" />
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="scripts/jquery.easing.js"></script>
+  <script type="text/javascript" src="scripts/jquery.easypiechart.js"></script>
+  <script type="text/javascript" src="scripts/students/students.js?1747916287"></script>
+
+</head>
+<body>
+<div id="MainDiv">
+
+<!--  Header Section Starts Here  -->
+  <div id="Header">
+    <a href="dashboard.php"><img src="images/logo.png?1" width="490" height="60" alt="Kohinoor Grammar School & College" title="Kohinoor Grammar School & College" /></a>
+	<div id="Welcome">
+	  Welcome, <span>{{ user.username }}</span>
+	  <img src="images/admins/thumbs/default.jpg?1679702628" alt="{{ user.username }}" title="{{ user.username }}" />
+
+	  <div>
+	    <a class="ui-state-default ui-corner-all" href="{{ url_for('logout') }}"><span class="ui-icon ui-icon-power"></span>Logout</a>
+	    <a class="ui-state-default ui-corner-all" href="my-account.php"><span class="ui-icon ui-icon-person"></span>My Account</a>
+	  </div>
+	</div>
+  </div>
+<!--  Header Section Ends Here  -->
+
+<!--  Navigation Section Starts Here  -->
+  <div id="Navigation">
+     <ul>
+	  <li>
+	    <a href="{{ url_for('index') }}"><img class="icon" src="images/icons/home.png" alt="Dashboard" title="Dashboard" /></a>
+
+	    <ul>
+	      <li><a href="my-account.php">My Account</a></li>
+	      <li><a href="{{ url_for('index') }}">Logout</a></li>
+	    </ul>
+	  </li>
+
+	<li>
+	<a href="{{ url_for('dashboard') }}">Dashboard<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	</li>
+	<li>
+	<a href="{{ url_for('view_students') }}">Students<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+		  <li><a href="{{ url_for('add_student') }}">New Student</a></li>
+		  <li><a href="{{ url_for('view_attendance') }}">Attendance</a></li>
+		  <li><a href="{{ url_for('view_students') }}">Students</a></li>
+	</ul>
+	</li>
+	
+	<li>
+	<a href="{{ url_for('view_teachers') }}">HR<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('add_teacher') }}">New Employee</a></li>
+		  <li><a href="{{ url_for('view_teachers') }}">Employee</a></li>
+		 
+	</ul>		
+	</li>
+	
+	<li>
+	<a href="{{ url_for('view_fees') }}">Billing<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('add_fee') }}">Add fee</a></li>
+		  <li><a href="{{ url_for('view_fees') }}">Fee</a></li>
+		 
+	</ul>		
+	</li>
+	
+	<div id="FullScreen" onclick="TakePrint( )" style="right:50px;"><img src="images/icons/print.png" alt="Take Print" title="Take Print" /></div>
+	<div id="FullScreen" fullScreen="N"><img src="images/icons/enter-full-screen.png" alt="Full Screen" title="Full Screen" /></div>
+	
+	
+	<script>
+	function TakePrint( )
+	{
+		window.print( );
+    }
+	</script>
+	{% block content %}
+	{% endblock %}
+    </div>
+</body>
+</html>

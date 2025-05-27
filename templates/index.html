@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KGS Admin Panel</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en-us" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<meta name="revisit-after" content="1 Weeks" />
+	<meta name="distribution" content="global" />
+	<meta name="robots" content="noindex,nofollow,noarchive" />
+	<meta name="rating" content="general" />
+
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="Tue, 01 Jan 2009 12:12:12 GMT" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	
+	<meta name="copyright" content="SW3 Solutions" />
+	<base href="{{ url_for('static', filename='') }}" />
+	<link rev="made" href="mailto:info@sw3solutions.com" />
+	
+	<link rel="Shortcut Icon" href="images/icons/favicon.ico" type="image/icon" />
+	<link rel="icon" href="images/icons/favicon.ico" type="image/icon" />
+
+	<link type="text/css" rel="stylesheet" href="css/jquery.fixedtable.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.colorbox.css?1592322406" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.tiptip.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.tokeninput.css?1582747120" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.ui-timepicker.css?1613369926" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.rating.css?1613369926" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/jquery.ui.css?1679702628" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/jquery.datatables.css?1613365480" />
+	<link type="text/css" rel="stylesheet" href="css/themes/redmond/common.css?1679702628" />
+	<link type="text/css" rel="stylesheet" href="css/common.css?1688974401" />
+	<script type="text/javascript" src="scripts/jquery.js?1613369990"></script>
+	<script type="text/javascript" src="scripts/jquery.ui.js?1613369994"></script>
+	<script type="text/javascript" src="scripts/jquery.colorbox.js?1613369974"></script>
+	<script type="text/javascript" src="scripts/jquery.timepicker.js?1592322406"></script>
+	<script type="text/javascript" src="scripts/jquery.datatables.js?1613369982"></script>
+	<script type="text/javascript" src="scripts/jquery.maskedinput.js?1592322406"></script>
+	<script type="text/javascript" src="scripts/jquery.cookie.js?1613369976"></script>
+	<script type="text/javascript" src="scripts/jquery.tiptip.js?1613369992"></script>
+	<script type="text/javascript" src="scripts/jquery.tablednd.js?1613369992"></script>
+	<script type="text/javascript" src="scripts/jquery.filtertable.js?1684232593"></script>
+	<script type="text/javascript" src="scripts/jquery.fixedtable.js?1582747122"></script>
+	<script type="text/javascript" src="scripts/jquery.tokeninput.js?1613369994"></script>
+	<script type="text/javascript" src="scripts/jquery.rating.js?1613369988"></script>
+	<script type="text/javascript" src="scripts/jquery.ajaxq.js?1613369972"></script>
+	<script type="text/javascript" src="scripts/validator.js?1659931578"></script>
+	<script type="text/javascript" src="scripts/common.js?1684236497"></script>
+	<script type="text/javascript" src="scripts/functions.js?1684236528"></script>
+	
+	
+	<link rel="stylesheet" href="https://localhost:5000/static/plugins/chosen/chosen.css">
+
+  <script type="text/javascript" src="http://localhost:5000/static/plugins/chosen/chosen.jquery.js"></script>
+  <script type="text/javascript" src="https://localhost:5000/static/plugins/chosen/prism.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://localhost:5000/static/plugins/chosen/init.js" charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,300,700" />
+  <link type="text/css" rel="stylesheet" href="css/dashboard.css?1582747120" />
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="scripts/jquery.easing.js"></script>
+  <script type="text/javascript" src="scripts/jquery.easypiechart.js"></script>
+  <script type="text/javascript" src="scripts/dashboard.js?1659931578"></script>
+	
+	
+
+
+    <!-- Bootstrap CSS --
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+    
+    <!-- Font Awesome Icons --
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: #2c3e50;
+            height: 100vh;
+            color: white;
+            position: fixed;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background: #34495e;
+            color: #00d9ff;
+        }
+
+        .sidebar i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .content {
+            margin-left: 220px;
+            padding: 30px;
+            background-color: #f4f6f9;
+            min-height: 100vh;
+        }
+
+        .alert {
+            margin-top: 10px;
+        }
+    </style-->
+</head>
+<body>
+<div id="MainDiv">
+
+<!--  Header Section Starts Here  -->
+  <div id="Header">
+    <a href="dashboard.php"><img src="images/logo.png?1" width="490" height="60" alt="Kohinoor Grammar School & College" title="Kohinoor Grammar School & College" /></a>
+	<div id="Welcome">
+	  Welcome, <span>{{ user.username }}</span>
+	  <img src="images/admins/thumbs/default.jpg?1679702628" alt="{{ user.username }}" title="{{ user.username }}" />
+
+	  <div>
+	    <a class="ui-state-default ui-corner-all" href="{{ url_for('logout') }}"><span class="ui-icon ui-icon-power"></span>Logout</a>
+	    <a class="ui-state-default ui-corner-all" href="my-account.php"><span class="ui-icon ui-icon-person"></span>My Account</a>
+	  </div>
+	</div>
+  </div>
+<!--  Header Section Ends Here  -->
+
+<!--  Navigation Section Starts Here  -->
+  <div id="Navigation">
+    <ul>
+	  <li>
+	    <a href="{{ url_for('index') }}"><img class="icon" src="images/icons/home.png" alt="Dashboard" title="Dashboard" /></a>
+
+	    <ul>
+	      <li><a href="my-account.php">My Account</a></li>
+	      <li><a href="{{ url_for('index') }}">Logout</a></li>
+	    </ul>
+	  </li>
+
+	<li>
+	<a href="{{ url_for('dashboard') }}">Dashboard<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	</li>
+	<li>
+	<a href="{{ url_for('view_students') }}">Students<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+		  <li><a href="{{ url_for('add_student') }}">New Student</a></li>
+		  <li><a href="{{ url_for('view_attendance') }}">Attendance</a></li>
+		  <li><a href="{{ url_for('view_students') }}">Students</a></li>
+	</ul>
+	</li>
+	
+	<li>
+	<a href="{{ url_for('view_teachers') }}">HR<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('add_teacher') }}">New Employee</a></li>
+		  <li><a href="{{ url_for('view_teachers') }}">Employee</a></li>
+		 
+	</ul>		
+	</li>
+	
+	<li>
+	<a href="{{ url_for('view_fees') }}">Billing<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+	<ul>
+		  <li><a href="{{ url_for('add_fee') }}">Add fee</a></li>
+		  <li><a href="{{ url_for('view_fees') }}">Fee</a></li>
+		 
+	</ul>		
+	</li>
+	
+	<li>
+	    <a href="inventory/">Inventory<img src="images/themes/redmond/nav-arrow.png" alt="" title="" /></a>
+
+	    <ul>
+		  <li><a href="inventory/items.php">Items</a></li>
+		  <li><a href="inventory/inventory.php">Inventory</a></li>
+		  <li><a href="inventory/transfers.php">Transfers</a></li>
+		  <li><a href="inventory/adjustments.php">Adjustments</a></li>
+		  <li><a href="inventory/reports.php">Reports</a></li>
+	    </ul>
+	  </li>
+    </ul>
+	
+	<div id="FullScreen" onclick="TakePrint( )" style="right:50px;"><img src="images/icons/print.png" alt="Take Print" title="Take Print" /></div>
+	<div id="FullScreen" fullScreen="N"><img src="images/icons/enter-full-screen.png" alt="Full Screen" title="Full Screen" /></div>
+	
+	
+	<script>
+	function TakePrint( )
+	{
+		window.print( );
+    }
+	</script>
+	
+    </div>
+
+    <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+	<!--  Body Section Starts Here  -->
+  <div id="Body">
+    <div id="Page">
+	
+      <img id="Indicator" src="images/indicator.gif" alt="" title="" />
+      <img src="images/dashboard.png" title="" alt="" />
+      <h1>Dashboard</h1>
+      <span>What would you like to do today!</span><br />
+    </div>
+
+    <div id="Contents">
+      <div id="PageMsg" class="hidden"></div>
+      <div id="DashboardIcons">
+
+        <fieldset class="first">
+          <legend><a href="students/">Students</a></legend>
+
+	      <ul>
+		    <li>
+		      <a href="students/navigator.php">
+		        <img src="images/students/navigator.png" title="" alt="" />
+		        <span>Navigator</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/inquiry-statuses.php">
+		        <img src="images/students/inquiry-statuses.png" title="" alt="" />
+		        <span>Inquiry Statuses</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/inquiries.php">
+		        <img src="images/students/inquiries.png" title="" alt="" />
+		        <span>Inquiries</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/registrations.php">
+		        <img src="images/students/registrations.png" title="" alt="" />
+		        <span>Registrations</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/students.php">
+		        <img src="images/students/students.png" title="" alt="" />
+		        <span>Students</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/attendance.php">
+		        <img src="images/students/attendance.png" title="" alt="" />
+		        <span>Attendance</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/transfer-reasons.php">
+		        <img src="images/students/transfer-reasons.png" title="" alt="" />
+		        <span>Transfer Reasons</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/transfers.php">
+		        <img src="images/students/transfers.png" title="" alt="" />
+		        <span>Transfers</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/withdrawal-reasons.php">
+		        <img src="images/students/withdrawal-reasons.png" title="" alt="" />
+		        <span>Withdrawal Reasons</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/withdrawals.php">
+		        <img src="images/students/withdrawals.png" title="" alt="" />
+		        <span>Withdrawals</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/rejoins.php">
+		        <img src="images/students/rejoins.png" title="" alt="" />
+		        <span>Rejoins</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/promotions.php">
+		        <img src="images/students/promotions.png" title="" alt="" />
+		        <span>Promotions</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/sms-templates.php">
+		        <img src="images/students/sms-templates.png" title="" alt="" />
+		        <span>SMS Templates</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/sms.php">
+		        <img src="images/students/sms.png" title="" alt="" />
+		        <span>SMS</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/notices.php">
+		        <img src="images/students/notices.png" title="" alt="" />
+		        <span>Notices</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/notifications.php">
+		        <img src="images/students/notifications.png" title="" alt="" />
+		        <span>App Notifications</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/revisions.php">
+		        <img src="images/students/revisions.png" title="" alt="" />
+		        <span>Profile Revisions</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/statistics.php">
+		        <img src="images/students/statistics.png" title="" alt="" />
+		        <span>Statistics</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/lists.php">
+		        <img src="images/students/lists.png" title="" alt="" />
+		        <span>Student Lists</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="students/reports.php">
+		        <img src="images/students/reports.png" title="" alt="" />
+		        <span>Reports</span>
+		      </a>
+		    </li>
+	      </ul>
+        </fieldset>
+        <fieldset>
+          <legend><a href="billing/">Billing</a></legend>
+
+	      <ul>
+		    <li>
+		      <a href="billing/navigator.php">
+		        <img src="images/billing/navigator.png" title="" alt="" />
+		        <span>Navigator</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/fee-categories.php">
+		        <img src="images/billing/fee-categories.png" title="" alt="" />
+		        <span>Fee Categories</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/fee-structure.php">
+		        <img src="images/billing/fee-structure.png" title="" alt="" />
+		        <span>Fee Structure</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/fee-concessions.php">
+		        <img src="images/billing/fee-concessions.png" title="" alt="" />
+		        <span>Fee Concessions</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/fee-generation.php">
+		        <img src="images/billing/fee-generation.png" title="" alt="" />
+		        <span>Fee Generation</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/fee-collection.php">
+		        <img src="images/billing/fee-collection.png" title="" alt="" />
+		        <span>Fee Collection</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/bank-reconciliation.php">
+		        <img src="images/billing/bank-reconciliation.png" title="" alt="" />
+		        <span>Bank Reconciliation</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/final-settlements.php">
+		        <img src="images/billing/final-settlements.png" title="" alt="" />
+		        <span>Final Settlements</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/api-logs.php">
+		        <img src="images/billing/api-logs.png" title="" alt="" />
+		        <span>Bank API Logs</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="billing/reports.php">
+		        <img src="images/billing/reports.png" title="" alt="" />
+		        <span>Reports</span>
+		      </a>
+		    </li>
+	      </ul>
+        </fieldset>
+
+        <fieldset>
+          <legend><a href="hr/">HR</a></legend>
+
+	      <ul>
+		    <li>
+		      <a href="hr/navigator.php">
+		        <img src="images/hr/navigator.png" title="" alt="" />
+		        <span>Navigator</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/employees.php">
+		        <img src="images/hr/employees.png" title="" alt="" />
+		        <span>Employees</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/departments.php">
+		        <img src="images/hr/departments.png" title="" alt="" />
+		        <span>Departments</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/designations.php">
+		        <img src="images/hr/designations.png" title="" alt="" />
+		        <span>Designations</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/attendance.php">
+		        <img src="images/hr/attendance.png" title="" alt="" />
+		        <span>Attendance</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/transfer-reasons.php">
+		        <img src="images/hr/transfer-reasons.png" title="" alt="" />
+		        <span>Transfer Reasons</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/transfers.php">
+		        <img src="images/hr/transfers.png" title="" alt="" />
+		        <span>Transfers</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/resignation-reasons.php">
+		        <img src="images/hr/resignation-reasons.png" title="" alt="" />
+		        <span>Resignation Reasons</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/resignations.php">
+		        <img src="images/hr/resignations.png" title="" alt="" />
+		        <span>Resignations</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/rejoins.php">
+		        <img src="images/hr/rejoins.png" title="" alt="" />
+		        <span>Rejoins</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/asset-types.php">
+		        <img src="images/hr/asset-types.png" title="" alt="" />
+		        <span>Asset Types</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/assets.php">
+		        <img src="images/hr/assets.png" title="" alt="" />
+		        <span>Assets</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/sms-templates.php">
+		        <img src="images/hr/sms-templates.png" title="" alt="" />
+		        <span>SMS Templates</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/sms.php">
+		        <img src="images/hr/sms.png" title="" alt="" />
+		        <span>SMS</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/notices.php">
+		        <img src="images/hr/notices.png" title="" alt="" />
+		        <span>Notices</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/notifications.php">
+		        <img src="images/hr/notifications.png" title="" alt="" />
+		        <span>App Notifications</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/statistics.php">
+		        <img src="images/hr/statistics.png" title="" alt="" />
+		        <span>Statistics</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/lists.php">
+		        <img src="images/hr/lists.png" title="" alt="" />
+		        <span>Employee Lists</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="hr/reports.php">
+		        <img src="images/hr/reports.png" title="" alt="" />
+		        <span>Reports</span>
+		      </a>
+		    </li>
+	      </ul>
+        </fieldset>
+        <fieldset>
+          <legend><a href="payroll/">Payroll</a></legend>
+
+	      <ul>
+		    <li>
+		      <a href="payroll/social-security.php">
+		        <img src="images/payroll/social-security.png" title="" alt="" />
+		        <span>Social Security</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/eobi.php">
+		        <img src="images/payroll/eobi.png" title="" alt="" />
+		        <span>EOBI</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/provident-fund.php">
+		        <img src="images/payroll/provident-fund.png" title="" alt="" />
+		        <span>Provident Fund</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/income-tax.php">
+		        <img src="images/payroll/income-tax.png" title="" alt="" />
+		        <span>Income Tax</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/salaries.php">
+		        <img src="images/payroll/salaries.png" title="" alt="" />
+		        <span>Salaries</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/loans.php">
+		        <img src="images/payroll/loans.png" title="" alt="" />
+		        <span>Loans</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/bonus-types.php">
+		        <img src="images/payroll/bonus-types.png" title="" alt="" />
+		        <span>Bonus Types</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/bonuses.php">
+		        <img src="images/payroll/bonuses.png" title="" alt="" />
+		        <span>Bonuses</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/tax-adjustment-types.php">
+		        <img src="images/payroll/tax-adjustment-types.png" title="" alt="" />
+		        <span>Tax Adjustment Types</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/tax-adjustments.php">
+		        <img src="images/payroll/tax-adjustments.png" title="" alt="" />
+		        <span>Tax Adjustments</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/monthly-adjustments.php">
+		        <img src="images/payroll/monthly-adjustments.png" title="" alt="" />
+		        <span>Monthly Adjustments</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/payroll.php">
+		        <img src="images/payroll/payroll.png" title="" alt="" />
+		        <span>Payroll</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/final-settlement.php">
+		        <img src="images/payroll/final-settlement.png" title="" alt="" />
+		        <span>Final Settlement</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="payroll/reports.php">
+		        <img src="images/payroll/reports.png" title="" alt="" />
+		        <span>Reports</span>
+		      </a>
+		    </li>
+	      </ul>
+        </fieldset>
+        <fieldset>
+          <legend><a href="pettycash/">Petty Cash</a></legend>
+
+	      <ul>
+		    <li>
+		      <a href="pettycash/categories.php">
+		        <img src="images/pettycash/categories.png" title="" alt="" />
+		        <span>Categories</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="pettycash/receipts.php">
+		        <img src="images/pettycash/receipts.png" title="" alt="" />
+		        <span>Receipts</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="pettycash/expenses.php">
+		        <img src="images/pettycash/expenses.png" title="" alt="" />
+		        <span>Expenses</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="pettycash/reports.php">
+		        <img src="images/pettycash/reports.png" title="" alt="" />
+		        <span>Reports</span>
+		      </a>
+		    </li>
+	      </ul>
+        </fieldset>
+        <fieldset>
+          <legend><a href="accounts/">Accounts</a></legend>
+
+	      <ul>
+		    <li>
+		      <a href="accounts/accounts.php">
+		        <img src="images/accounts/accounts.png" title="" alt="" />
+		        <span>Chart of Accounts</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="accounts/depreciation.php">
+		        <img src="images/accounts/depreciation.png" title="" alt="" />
+		        <span>Depreciation</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="accounts/cheque-books.php">
+		        <img src="images/accounts/cheque-books.png" title="" alt="" />
+		        <span>Cheque Books</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="accounts/vouchers.php">
+		        <img src="images/accounts/vouchers.png" title="" alt="" />
+		        <span>Vouchers</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="accounts/general-ledger.php">
+		        <img src="images/accounts/general-ledger.png" title="" alt="" />
+		        <span>General Ledger</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="accounts/ledger-statement.php">
+		        <img src="images/accounts/ledger-statement.png" title="" alt="" />
+		        <span>Ledger Statement</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="accounts/balance-sheet.php">
+		        <img src="images/accounts/balance-sheet.png" title="" alt="" />
+		        <span>Balance Sheet</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="accounts/trial-balance.php">
+		        <img src="images/accounts/trial-balance.png" title="" alt="" />
+		        <span>Trial Balance</span>
+		      </a>
+		    </li>
+	      </ul>
+        </fieldset>
+        <fieldset>
+          <legend><a href="inventory/">Inventory</a></legend>
+
+	      <ul>
+		    <li>
+		      <a href="inventory/items.php">
+		        <img src="images/inventory/items.png" title="" alt="" />
+		        <span>Items</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="inventory/inventory.php">
+		        <img src="images/inventory/inventory.png" title="" alt="" />
+		        <span>Inventory</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="inventory/transfers.php">
+		        <img src="images/inventory/transfers.png" title="" alt="" />
+		        <span>Transfers</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="inventory/adjustments.php">
+		        <img src="images/inventory/adjustments.png" title="" alt="" />
+		        <span>Adjustments</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="inventory/reports.php">
+		        <img src="images/inventory/reports.png" title="" alt="" />
+		        <span>Reports</span>
+		      </a>
+		    </li>
+	      </ul>
+        </fieldset>
+
+      </div>
+	</div>
+  </div>
+<!--  Body Section Ends Here  -->
+
+	<!--script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>-->
+</body>
+</html>
